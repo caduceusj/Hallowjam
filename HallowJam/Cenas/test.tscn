@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bte83fj65jvig"]
+
+[ext_resource type="Script" path="res://Scripts/level1.gd" id="1_bui3x"]
+[ext_resource type="PackedScene" uid="uid://dpk2epek71usb" path="res://Cenas/cameraLimiter.tscn" id="2_iglrm"]
+[ext_resource type="PackedScene" uid="uid://dtm31j8urp8bs" path="res://Cenas/Player.tscn" id="2_uuldn"]
+[ext_resource type="PackedScene" uid="uid://cdan6ull4ccvp" path="res://Cenas/Map.tscn" id="4_qa2sv"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("camera", "player")]
+script = ExtResource("1_bui3x")
+camera = NodePath("Camera2D")
+player = NodePath("Player")
+
+[node name="Area1" parent="." instance=ExtResource("2_iglrm")]
+position = Vector2(0, 576)
+
+[node name="Area2" parent="." instance=ExtResource("2_iglrm")]
+position = Vector2(256, 576)
+
+[node name="Area3" parent="." instance=ExtResource("2_iglrm")]
+position = Vector2(512, 576)
+
+[node name="Area4" parent="." instance=ExtResource("2_iglrm")]
+position = Vector2(768, 576)
+
+[node name="Area5" parent="." instance=ExtResource("2_iglrm")]
+position = Vector2(1024, 576)
+
+[node name="Player" parent="." instance=ExtResource("2_uuldn")]
+position = Vector2(168, 512)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 432)
+
+[node name="Node2D" parent="." instance=ExtResource("4_qa2sv")]
+position = Vector2(0, 720)
