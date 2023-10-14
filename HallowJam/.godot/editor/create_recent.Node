@@ -1,3 +1,6 @@
+ColorRect
+TextureRect
+AudioStreamPlayer
 Label
 HBoxContainer
 CenterContainer
