@@ -1,16 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4vudukpisv6n"]
+[gd_scene load_steps=7 format=3 uid="uid://b4vudukpisv6n"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_m8csn"]
+[ext_resource type="Texture2D" uid="uid://culgqnfh0dh6p" path="res://Sprite/Player/Bullet2.png" id="2_nnqge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olwh0"]
-size = Vector2(16, 16)
+size = Vector2(16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xh1h"]
+atlas = ExtResource("2_nnqge")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omqc3"]
+atlas = ExtResource("2_nnqge")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4c76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xh1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omqc3")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
 
 [node name="Bullet" type="RigidBody2D"]
-scale = Vector2(0.25, 0.25)
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_m8csn")
+coolDown = 0.5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_olwh0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a4c76")
+animation = &"bullet"
+frame_progress = 0.87447

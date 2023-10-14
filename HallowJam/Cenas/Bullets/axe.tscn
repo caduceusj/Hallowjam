@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3ij38jpmy8wj"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_vwiuv"]
+[ext_resource type="Texture2D" uid="uid://navdrpwcnup8" path="res://Sprite/Placeholder/Axe.png" id="2_tst54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olwh0"]
+size = Vector2(16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkq2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tst54")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
+
+[node name="Axe" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_vwiuv")
+speed = 300
+damage = 50
+coolDown = 2.0
+
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_olwh0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vkq2e")
+animation = &"bullet"

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bte83fj65jvig"]
+[gd_scene load_steps=7 format=3 uid="uid://bte83fj65jvig"]
 
 [ext_resource type="Script" path="res://Scripts/level1.gd" id="1_bui3x"]
 [ext_resource type="PackedScene" uid="uid://dpk2epek71usb" path="res://Cenas/cameraLimiter.tscn" id="2_iglrm"]
 [ext_resource type="PackedScene" uid="uid://dtm31j8urp8bs" path="res://Cenas/Player.tscn" id="2_uuldn"]
 [ext_resource type="PackedScene" uid="uid://cdan6ull4ccvp" path="res://Cenas/Map.tscn" id="4_qa2sv"]
+[ext_resource type="PackedScene" uid="uid://biamoybuc33ng" path="res://Cenas/Enemy/enemyPrefab.tscn" id="5_hmqh2"]
+[ext_resource type="PackedScene" uid="uid://cjjh6r2kqes1u" path="res://Cenas/Items/collectablePrefab.tscn" id="6_hhdj5"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("1_bui3x")
@@ -33,3 +35,12 @@ position = Vector2(256, 432)
 
 [node name="Node2D" parent="." instance=ExtResource("4_qa2sv")]
 position = Vector2(0, 720)
+
+[node name="Enemy" parent="." instance=ExtResource("5_hmqh2")]
+position = Vector2(442, 704)
+
+[node name="Collectable" parent="." instance=ExtResource("6_hhdj5")]
+position = Vector2(670, 707)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_hmqh2")]
+position = Vector2(80, 704)
