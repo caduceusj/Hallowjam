@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bte83fj65jvig"]
+[gd_scene load_steps=9 format=3 uid="uid://bte83fj65jvig"]
 
 [ext_resource type="Script" path="res://Scripts/level1.gd" id="1_bui3x"]
 [ext_resource type="PackedScene" uid="uid://dpk2epek71usb" path="res://Cenas/cameraLimiter.tscn" id="2_iglrm"]
 [ext_resource type="PackedScene" uid="uid://dtm31j8urp8bs" path="res://Cenas/Player.tscn" id="2_uuldn"]
 [ext_resource type="PackedScene" uid="uid://cdan6ull4ccvp" path="res://Cenas/Map.tscn" id="4_qa2sv"]
 [ext_resource type="PackedScene" uid="uid://biamoybuc33ng" path="res://Cenas/Enemy/enemyPrefab.tscn" id="5_hmqh2"]
+[ext_resource type="PackedScene" uid="uid://bkvuor1qxglqe" path="res://Cenas/UI.tscn" id="5_kydml"]
 [ext_resource type="PackedScene" uid="uid://cjjh6r2kqes1u" path="res://Cenas/Items/collectablePrefab.tscn" id="6_hhdj5"]
 [ext_resource type="PackedScene" uid="uid://dtbcw8g40h38x" path="res://Cenas/Enemy/enemyTurret.tscn" id="7_44lux"]
 
@@ -32,11 +33,13 @@ position = Vector2(767, 575)
 position = Vector2(1023, 575)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_uuldn")]
-position = Vector2(168, 480)
+position = Vector2(63, 637)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(127, 647)
+
+[node name="CanvasLayer" parent="Camera2D" instance=ExtResource("5_kydml")]
 
 [node name="Enemy" parent="." instance=ExtResource("5_hmqh2")]
 position = Vector2(441, 683)

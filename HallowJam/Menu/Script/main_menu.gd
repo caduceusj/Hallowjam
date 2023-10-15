@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const startScene = "res://Cenas/Map.tscn"
+const startScene = "res://Cenas/Intro/intro.tscn"
 
 
 

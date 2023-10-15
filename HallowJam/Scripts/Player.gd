@@ -16,6 +16,7 @@ var directionBullet = Vector2(1,0)
 @onready var web = preload("res://Cenas/Bullets/web.tscn")
 @onready var axe = preload("res://Cenas/Bullets/axe.tscn")
 
+var inMeleeArea = false
 var coolDown = 2.0
 var bullet_point : Node2D
 var target : Node2D
@@ -23,23 +24,27 @@ var justAcquiredAxe
 var canFire = true
 var canSkill = true
 var isHittingHammer = false
-
+var canReceiveDamage = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 1300
 
 func _ready():
 	bullet_point = $bulletPoint
-
+	
 
 
 func _process(delta):
-	if(justAcquiredAxe == true):
-		justAcquiredAxe = false
-		$Control.show()
-		$Control/MarginContainer/Panel/Label.text = "Muhehehehe noo i dont have anything to say"
-		await(get_tree().create_timer(3.0).timeout)
-		$Control.hide()
+	if(inMeleeArea and canReceiveDamage):
+		canReceiveDamage = false
+		$AudioStreamPlayer.stream = load("res://SFX/Character/damage.ogg")
+		$AudioStreamPlayer.play(0.0)
+		player_State.currentHealth = player_State.currentHealth - 20
+		if(player_State.currentHealth <= 0):
+			get_tree().change_scene_to_file("res://Menu/Cenas/game_over.tscn")
+		$AnimationPlayer.play("Damaged")
+		await($AnimationPlayer.animation_finished)
+		canReceiveDamage = true
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -181,3 +186,26 @@ func _input(event):
 			
 			
 	
+
+
+func _on_area_2d_area_entered(area):
+	if(area.is_in_group("Enemy")):
+		inMeleeArea = true
+	
+	if(area.is_in_group("enemyBullet")):
+		area.get_parent().queue_free()
+		canReceiveDamage = false
+		$AudioStreamPlayer.stream = load("res://SFX/Character/damage.ogg")
+		$AudioStreamPlayer.play(0.0)
+		player_State.currentHealth = player_State.currentHealth - 20
+		if(player_State.currentHealth <= 0):
+			get_tree().change_scene_to_file("res://Menu/Cenas/game_over.tscn")
+		$AnimationPlayer.play("Damaged")
+		await($AnimationPlayer.animation_finished)
+		canReceiveDamage = true
+		
+
+
+func _on_area_2d_area_exited(area):
+	if(area.is_in_group("Enemy")):
+		inMeleeArea = false

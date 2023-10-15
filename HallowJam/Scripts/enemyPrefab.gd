@@ -7,6 +7,8 @@ var player : Node2D
 var health = 75
 var onFire = false
 
+var damage = 20
+
 enum State {
 	PATROL,
 	CHASE
@@ -33,8 +35,8 @@ func _physics_process(delta):
 		
 func _process(delta):
 	if(onFire):
-		await(get_tree().create_timer(2.0).timeout)
-		health = health - 10
+		await(get_tree().create_timer(1.0).timeout)
+		health = health - 25
 		if(health <= 0):
 			$BulletAndArea.monitoring = false
 			$AnimationPlayer.play("death")
@@ -76,6 +78,14 @@ func _on_bullet_and_area_area_entered(area):
 		$AnimationPlayer.play("Damaged")
 	elif(area.is_in_group("Hammer")):
 		health = health - 75
+		$AnimationPlayer.play("Damaged")
+		if(health <= 0):
+			$BulletAndArea.monitoring = false
+			$AnimationPlayer.play("death")
+			await($AnimationPlayer.animation_finished)
+			queue_free()
+	elif(area.is_in_group("Web")):
+		health = health - 50
 		$AnimationPlayer.play("Damaged")
 		if(health <= 0):
 			$BulletAndArea.monitoring = false

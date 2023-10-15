@@ -27,6 +27,16 @@ func _physics_process(delta):
 			shoot()
 			canShoot = false
 	
+func _process(delta):
+	if(onFire):
+		await(get_tree().create_timer(1.0).timeout)
+		health = health - 25
+		if(health <= 0):
+			$BulletAndArea.monitoring = false
+			$AnimationPlayer.play("death")
+			await($AnimationPlayer.animation_finished)
+			queue_free()
+		$AnimationPlayer.play("Damaged")
 
 func shoot():
 	$AnimatedSprite2D.play("Shooting")
@@ -57,6 +67,14 @@ func _on_bullet_and_area_area_entered(area):
 		$AnimationPlayer.play("Damaged")
 	elif(area.is_in_group("Hammer")):
 		health = health - 75
+		$AnimationPlayer.play("Damaged")
+		if(health <= 0):
+			$BulletAndArea.monitoring = false
+			$AnimationPlayer.play("death")
+			await($AnimationPlayer.animation_finished)
+			queue_free()
+	elif(area.is_in_group("Web")):
+		health = health - 50
 		$AnimationPlayer.play("Damaged")
 		if(health <= 0):
 			$BulletAndArea.monitoring = false

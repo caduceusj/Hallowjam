@@ -14,5 +14,5 @@ func _ready():
 		$AnimatedSprite2D.flip_h = false
 	$AnimatedSprite2D.play("bullet")
 	apply_central_impulse(direction * speed)
-	await(get_tree().create_timer(5.0).timeout)
+	await(get_tree().create_timer(0.5).timeout)
 	queue_free()

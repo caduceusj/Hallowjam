@@ -1,4 +1,5 @@
-res://Menu/Script
-res://Menu/Scene
-res://Menu/Font
+res://Scripts
 res://Cenas
+res://Sprite/Intro
+res://Menu/Script
+res://Menu/Font

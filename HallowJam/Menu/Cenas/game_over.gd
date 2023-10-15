@@ -1,7 +1,7 @@
 extends MarginContainer
 
 const menuScene = "res://Menu/Cenas/main_menu.tscn"
-const startScene = "res://Cenas/Map.tscn"
+const startScene = "res://Cenas/Intro/intro.tscn"
 
 @onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Label
 @onready var selectorTwo = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Label

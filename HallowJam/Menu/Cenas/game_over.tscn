@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlffhqo2gpsn1"]
+[gd_scene load_steps=4 format=3 uid="uid://dlffhqo2gpsn1"]
 
 [ext_resource type="Script" path="res://Menu/Cenas/game_over.gd" id="1_o8plu"]
+[ext_resource type="FontFile" uid="uid://bltj6pj5t6cuh" path="res://Cenas/Fontes/ModernDOS9x16.ttf" id="2_gbxtm"]
 [ext_resource type="FontFile" uid="uid://d2d0p5jjppi2r" path="res://Menu/Font/ChiKareGo2.ttf" id="2_ssc1t"]
 
 [node name="GameOverScreen" type="MarginContainer"]
@@ -30,9 +31,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.698039, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.796078, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ssc1t")
+theme_override_fonts/font = ExtResource("2_gbxtm")
 theme_override_font_sizes/font_size = 32
-text = "Game over"
+text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -58,8 +59,9 @@ theme_override_font_sizes/font_size = 16
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.698039, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ssc1t")
+theme_override_fonts/font = ExtResource("2_gbxtm")
 theme_override_font_sizes/font_size = 16
 text = "Retry"
 
@@ -80,7 +82,8 @@ theme_override_font_sizes/font_size = 16
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.698039, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ssc1t")
+theme_override_fonts/font = ExtResource("2_gbxtm")
 theme_override_font_sizes/font_size = 16
 text = "Exit"

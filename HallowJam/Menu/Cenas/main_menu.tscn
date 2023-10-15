@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://crd2uaqfn6o88"]
+[gd_scene load_steps=8 format=3 uid="uid://crd2uaqfn6o88"]
 
 [ext_resource type="Script" path="res://Menu/Script/main_menu.gd" id="1_40tkr"]
 [ext_resource type="FontFile" uid="uid://d2d0p5jjppi2r" path="res://Menu/Font/ChiKareGo2.ttf" id="2_by6rp"]
+[ext_resource type="Texture2D" uid="uid://bps2svfmnvuuj" path="res://Sprite/Background/Background1.png" id="2_d8mir"]
 [ext_resource type="Texture2D" uid="uid://cqhobkkd6x678" path="res://Menu/Sprites/image.png" id="2_hvqjp"]
 [ext_resource type="PackedScene" uid="uid://bhefwux412vhp" path="res://Menu/Cenas/main_menu_audio.tscn" id="3_2h5cp"]
+[ext_resource type="FontFile" uid="uid://bltj6pj5t6cuh" path="res://Cenas/Fontes/ModernDOS9x16.ttf" id="5_4rc31"]
 
 [sub_resource type="Theme" id="Theme_0e0jo"]
 
@@ -22,6 +24,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_0e0jo")
 script = ExtResource("1_40tkr")
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(388, 65)
+texture = ExtResource("2_d8mir")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -68,7 +74,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.756863, 0.737255, 0.329412, 1)
 theme_override_colors/font_shadow_color = Color(0.627451, 0.505882, 0.168627, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_by6rp")
+theme_override_fonts/font = ExtResource("5_4rc31")
 theme_override_font_sizes/font_size = 16
 text = "Start"
 
@@ -94,7 +100,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.756863, 0.737255, 0.329412, 1)
 theme_override_colors/font_shadow_color = Color(0.627451, 0.505882, 0.168627, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_by6rp")
+theme_override_fonts/font = ExtResource("5_4rc31")
 theme_override_font_sizes/font_size = 16
 text = "Credits"
 
@@ -120,7 +126,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.756863, 0.737255, 0.329412, 1)
 theme_override_colors/font_shadow_color = Color(0.627451, 0.505882, 0.168627, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_by6rp")
+theme_override_fonts/font = ExtResource("5_4rc31")
 theme_override_font_sizes/font_size = 16
 text = "Exit"
 

@@ -26,7 +26,7 @@ sprite_frames = SubResource("SpriteFrames_6c5ga")
 animation = &"Web"
 script = ExtResource("2_5us3h")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Web"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_17vw5")
