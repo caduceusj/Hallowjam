@@ -10,6 +10,6 @@ var minHealth = 0
 
 var currentHealth = 100
 
-var currentItems = []
+var currentItems = ["Axe", "Hammer", "Flame", "Web"]
 
-var currentSkill = "Flame"
+var currentSkill = "Axe"

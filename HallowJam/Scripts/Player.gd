@@ -15,6 +15,8 @@ var directionBullet = Vector2(1,0)
 @onready var bullet = preload("res://Cenas/bullet.tscn")
 @onready var web = preload("res://Cenas/Bullets/web.tscn")
 @onready var axe = preload("res://Cenas/Bullets/axe.tscn")
+
+var coolDown = 2.0
 var bullet_point : Node2D
 var target : Node2D
 var justAcquiredAxe
@@ -85,14 +87,11 @@ func fire():
 		canFire = true
 	
 func skillShot():
-	if(canSkill):
-		canSkill = false
 		var axeShot = axe.instantiate()
 		axeShot.global_position = bullet_point.global_position
 		axeShot.direction = directionBullet
 		get_tree().root.add_child(axeShot)
 		await(get_tree().create_timer(axeShot.coolDown).timeout)
-		canSkill = true
 
 func webJump():
 	$AnimationPlayer.play("WeebStrike")
@@ -116,6 +115,7 @@ func webJump():
 
 func flamethrower():
 	print("ENTROU")
+	
 	$AudioStreamPlayer.stream = load("res://SFX/Weapons/HallowJam23_-_Track_02_Flamethrower.wav")
 	$AudioStreamPlayer.play(0.0)
 	$Fire.play("default")
@@ -125,6 +125,7 @@ func flamethrower():
 	#await(get_tree().create_timer(2.0).timeout)
 	$Fire/Area2D2.monitorable = false
 	$Fire.visible = false
+
 
 func _input(event):
 	if(event.is_action_pressed("ui_shoot")):
@@ -143,7 +144,14 @@ func _input(event):
 		#fireFlip
 		$Fire.position = Vector2(-36,-4)
 		$Fire.flip_h = true
-	if(event.is_action_pressed("ui_skill")):
+	if(event.is_action_pressed("ui_change_skill")):
+		var aux = player_State.currentItems.find(player_State.currentSkill)
+		if(aux + 1 >= player_State.currentItems.size()):
+			aux = 0
+		else:
+			aux = aux + 1
+		player_State.currentSkill = player_State.currentItems[aux]
+	if(event.is_action_pressed("ui_skill") and canSkill):
 		if(player_State.currentSkill == "Axe"):
 			skillShot()
 		if(player_State.currentSkill == "Flame"):
@@ -166,6 +174,9 @@ func _input(event):
 		if(player_State.currentSkill == "Web" and is_on_floor()):
 			isHittingHammer = true
 			webJump()
+		canSkill = false
+		await(get_tree().create_timer(coolDown).timeout)
+		canSkill = true
 			
 			
 			
