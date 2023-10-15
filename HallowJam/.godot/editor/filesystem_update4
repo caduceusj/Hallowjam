@@ -1,0 +1,4 @@
+res://Menu/Cenas/main_menu.tscn
+res://Menu/Cenas/game_over.gd
+res://Menu/Cenas/game_over.tscn
+res://Menu/Script/main_menu.gd

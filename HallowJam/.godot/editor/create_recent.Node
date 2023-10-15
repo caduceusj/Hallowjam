@@ -1,0 +1,10 @@
+TextureRect
+Sprite2D
+ColorRect
+HBoxContainer
+Label
+CenterContainer
+VBoxContainer
+MarginContainer
+AudioStreamPlayer
+TextureProgressBar
