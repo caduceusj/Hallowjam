@@ -1,29 +1,27 @@
 extends MarginContainer
 
+const menuScene = "res://Menu/Cenas/main_menu.tscn"
 const startScene = "res://Cenas/Map.tscn"
 
-@onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
-@onready var selectorTwo = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
-@onready var selectorThree = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector
+@onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Label
+@onready var selectorTwo = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Label
+
 
 var currentSelection = 0
 
 func setCurrentSelection(currentSelection) :
 	selectorOne.text = ""
-	selectorTwo.text = ""
-	selectorThree.text = ""
+	selectorTwo.text = ""	
 	if currentSelection == 0 :
 		selectorOne.text = ">"
-	elif currentSelection == 1 :
-		selectorTwo.text = ">"
 	else :
-		selectorThree.text = ">"	
+		selectorTwo.text = ">"
 
 func handleSelection(currentSelection) :
 	if(currentSelection == 0) :
 		get_tree().change_scene_to_file(startScene)			
-	elif(currentSelection == 2) :
-		get_tree().quit()
+	else :
+		get_tree().change_scene_to_file(menuScene)			
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +31,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_just_pressed("ui_down")) :
-		if(currentSelection < 2) :
+		if(currentSelection < 1) :
 			currentSelection += 1		
 			setCurrentSelection(currentSelection)
 		else :

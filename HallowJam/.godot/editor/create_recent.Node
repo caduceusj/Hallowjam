@@ -1,9 +1,9 @@
 ColorRect
-TextureRect
-AudioStreamPlayer
-Label
 HBoxContainer
+Label
 CenterContainer
 VBoxContainer
 MarginContainer
+TextureRect
+AudioStreamPlayer
 TextureProgressBar

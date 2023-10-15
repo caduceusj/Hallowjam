@@ -1,6 +1,4 @@
-res://Menu/Scene/main_menu.tscn
-res://Cenas/HUD_Bar.tscn
-res://Menu/Scene/main_menu_audio.tscn
-res://Menu/Script/main_menu.gd
 res://Menu/Cenas/main_menu.tscn
-res://Menu/Cenas/main_menu_audio.tscn
+res://Menu/Cenas/game_over.gd
+res://Menu/Cenas/game_over.tscn
+res://Menu/Script/main_menu.gd
