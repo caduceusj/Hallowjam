@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3ij38jpmy8wj"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_vwiuv"]
+[ext_resource type="Texture2D" uid="uid://dnr85tlh8xfch" path="res://Sprite/Player/Axe/AxeSprite.png" id="2_3ty4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olwh0"]
+size = Vector2(16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g28h"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnv60"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3oyk"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fxv"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64d53"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nghp"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1svg"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afrhy"]
+atlas = ExtResource("2_3ty4k")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkq2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g28h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnv60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3oyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05fxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64d53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nghp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1svg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afrhy")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
+
+[node name="Axe" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_vwiuv")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_olwh0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vkq2e")
+animation = &"bullet"
+frame_progress = 0.325046

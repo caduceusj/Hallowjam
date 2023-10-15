@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmp3vyp05vpaf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ysyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6twnn"]
+size = Vector2(48, 21.3333)
+
+[node name="Fire" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8ysyg")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Fire"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28, 0)
+shape = SubResource("RectangleShape2D_6twnn")
+debug_color = Color(0.694118, 0.137255, 0.156863, 0.419608)
