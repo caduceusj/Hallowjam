@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj86cf0w82c8s"]
+
+[ext_resource type="Texture2D" uid="uid://dr3ohkoeegcuj" path="res://Sprite/Player/WebStrike/webSurge.png" id="1_6vq5d"]
+[ext_resource type="Script" path="res://Scripts/web.gd" id="2_5us3h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac0ja"]
+atlas = ExtResource("1_6vq5d")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6c5ga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac0ja")
+}],
+"loop": false,
+"name": &"Web",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17vw5"]
+radius = 40.0
+
+[node name="Web" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6c5ga")
+animation = &"Web"
+script = ExtResource("2_5us3h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_17vw5")

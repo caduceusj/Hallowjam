@@ -1,0 +1,190 @@
+[gd_scene load_steps=16 format=3 uid="uid://biamoybuc33ng"]
+
+[ext_resource type="Script" path="res://Scripts/enemyPrefab.gd" id="1_vh1f7"]
+[ext_resource type="Texture2D" uid="uid://br78eg8f415t5" path="res://Sprite/EnemyBug/BugEnemy.png" id="2_x7wx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etq8c"]
+size = Vector2(20, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76g82"]
+atlas = ExtResource("2_x7wx0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odn2v"]
+atlas = ExtResource("2_x7wx0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bopop"]
+atlas = ExtResource("2_x7wx0")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r48is"]
+atlas = ExtResource("2_x7wx0")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r1qj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76g82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odn2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bopop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r48is")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pstl5"]
+size = Vector2(192, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k703"]
+size = Vector2(20, 28)
+
+[sub_resource type="Animation" id="Animation_lnnwp"]
+resource_name = "Damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.996078, 0, 0, 1), Color(1, 1, 1, 1), Color(0.996078, 0, 0, 1), Color(1, 1, 1, 1), Color(0.996078, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7h6nt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bullet:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bullet:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cfwum"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 0.705882), Color(1, 0, 0, 1), Color(1, 1, 1, 0.392157), Color(1, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ugtly"]
+resource_name = "BulletLoad"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bullet:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bullet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhyqe"]
+_data = {
+"BulletLoad": SubResource("Animation_ugtly"),
+"Damaged": SubResource("Animation_lnnwp"),
+"RESET": SubResource("Animation_7h6nt"),
+"death": SubResource("Animation_cfwum")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_vh1f7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_etq8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4r1qj")
+frame_progress = 0.895242
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -41.5)
+shape = SubResource("RectangleShape2D_pstl5")
+debug_color = Color(0.996078, 0, 0.215686, 0.419608)
+
+[node name="BulletAndArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAndArea"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_4k703")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lhyqe")
+}
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="area_entered" from="BulletAndArea" to="." method="_on_bullet_and_area_area_entered"]
+[connection signal="area_exited" from="BulletAndArea" to="." method="_on_bullet_and_area_area_exited"]

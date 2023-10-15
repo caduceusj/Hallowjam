@@ -1,0 +1,300 @@
+[gd_scene load_steps=30 format=3 uid="uid://dtbcw8g40h38x"]
+
+[ext_resource type="Texture2D" uid="uid://cq00rg31cbrki" path="res://Sprite/EnemyTurret/EnemyTurret.png" id="1_1i8rr"]
+[ext_resource type="Script" path="res://Scripts/enemyTurret.gd" id="1_nd0lj"]
+[ext_resource type="Texture2D" uid="uid://srqvqqf1mgml" path="res://Sprite/EnemyTurret/enemyTurretBulelt.png" id="2_d4s43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etq8c"]
+size = Vector2(20, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3xge"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sx2j"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mp13"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_223ef"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnb0r"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is26x"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mx5d"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlglo"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m22a4"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8q3f"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78ybm"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g30e"]
+atlas = ExtResource("1_1i8rr")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81clx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3xge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sx2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mp13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_223ef")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnb0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is26x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mx5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlglo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m22a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8q3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78ybm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g30e")
+}],
+"loop": false,
+"name": &"Shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pstl5"]
+size = Vector2(192, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k703"]
+size = Vector2(20, 28)
+
+[sub_resource type="Animation" id="Animation_lnnwp"]
+resource_name = "Damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.996078, 0, 0, 1), Color(1, 1, 1, 1), Color(0.996078, 0, 0, 1), Color(1, 1, 1, 1), Color(0.996078, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7h6nt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bullet:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bullet:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cfwum"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 0.705882), Color(1, 0, 0, 1), Color(1, 1, 1, 0.392157), Color(1, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ugtly"]
+resource_name = "BulletLoad"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bullet:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bullet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhyqe"]
+_data = {
+"BulletLoad": SubResource("Animation_ugtly"),
+"Damaged": SubResource("Animation_lnnwp"),
+"RESET": SubResource("Animation_7h6nt"),
+"death": SubResource("Animation_cfwum")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1e38"]
+atlas = ExtResource("2_d4s43")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2ddu"]
+atlas = ExtResource("2_d4s43")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk1t0"]
+atlas = ExtResource("2_d4s43")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vryqt"]
+atlas = ExtResource("2_d4s43")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52s85"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1e38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2ddu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk1t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vryqt")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_nd0lj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_etq8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_81clx")
+animation = &"Idle"
+
+[node name="BulletPoint" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(-12, 0)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -41.5)
+shape = SubResource("RectangleShape2D_pstl5")
+debug_color = Color(0.996078, 0, 0.215686, 0.419608)
+
+[node name="BulletAndArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAndArea"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_4k703")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lhyqe")
+}
+
+[node name="Bullet" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(12, 0)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_52s85")
+animation = &"bullet"
+frame = 3
+frame_progress = 0.210615
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="area_entered" from="BulletAndArea" to="." method="_on_bullet_and_area_area_entered"]
+[connection signal="area_exited" from="BulletAndArea" to="." method="_on_bullet_and_area_area_exited"]
