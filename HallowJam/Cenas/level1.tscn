@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqr54l04ufu62"]
+
+[ext_resource type="Script" path="res://Scripts/level1.gd" id="1_mjp2h"]
+[ext_resource type="PackedScene" uid="uid://cdan6ull4ccvp" path="res://Cenas/Map.tscn" id="2_pb2iw"]
+[ext_resource type="PackedScene" uid="uid://dpk2epek71usb" path="res://Cenas/cameraLimiter.tscn" id="3_chkgl"]
+[ext_resource type="PackedScene" uid="uid://dtm31j8urp8bs" path="res://Cenas/Player.tscn" id="4_uj67r"]
+[ext_resource type="PackedScene" uid="uid://bkvuor1qxglqe" path="res://Cenas/UI.tscn" id="5_m2ci5"]
+[ext_resource type="PackedScene" uid="uid://biamoybuc33ng" path="res://Cenas/Enemy/enemyPrefab.tscn" id="6_36ei1"]
+[ext_resource type="PackedScene" uid="uid://cjjh6r2kqes1u" path="res://Cenas/Items/collectablePrefab.tscn" id="7_ll0da"]
+[ext_resource type="PackedScene" uid="uid://dtbcw8g40h38x" path="res://Cenas/Enemy/enemyTurret.tscn" id="8_6eemf"]
+
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("camera", "player")]
+script = ExtResource("1_mjp2h")
+camera = NodePath("Camera2D")
+player = NodePath("Player")
+
+[node name="Node2D" parent="." instance=ExtResource("2_pb2iw")]
+position = Vector2(8, 699)
+
+[node name="Area1" parent="." instance=ExtResource("3_chkgl")]
+position = Vector2(-1, 575)
+
+[node name="Area2" parent="." instance=ExtResource("3_chkgl")]
+position = Vector2(255, 575)
+
+[node name="Area3" parent="." instance=ExtResource("3_chkgl")]
+position = Vector2(511, 575)
+
+[node name="Area4" parent="." instance=ExtResource("3_chkgl")]
+position = Vector2(767, 575)
+
+[node name="Area5" parent="." instance=ExtResource("3_chkgl")]
+position = Vector2(1023, 575)
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_uj67r")]
+position = Vector2(63, 637)
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(127, 647)
+
+[node name="CanvasLayer" parent="Camera2D" instance=ExtResource("5_m2ci5")]
+
+[node name="Enemy" parent="." instance=ExtResource("6_36ei1")]
+position = Vector2(441, 683)
+
+[node name="Collectable" parent="." instance=ExtResource("7_ll0da")]
+position = Vector2(670, 672)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_36ei1")]
+position = Vector2(575, 683)
+
+[node name="Enemy3" parent="." instance=ExtResource("8_6eemf")]
+position = Vector2(393, 685)
