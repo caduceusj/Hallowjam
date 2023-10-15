@@ -17,5 +17,6 @@ func _on_area_entered(area):
 	if(area.is_in_group("Player")):
 			State.currentItems.append(item)
 			State.currentSkill = item
+			State.hasSkill = true
 			queue_free()
 	

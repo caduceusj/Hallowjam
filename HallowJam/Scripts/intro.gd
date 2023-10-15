@@ -17,11 +17,11 @@ func _ready():
 	await($VoiceAudioStream.finished)
 	await($AnimationPlayer.animation_finished)
 	player_State.currentHealth = 100
-	get_tree().change_scene_to_file("res://Cenas/test.tscn")
+	get_tree().change_scene_to_file("res://Cenas/level.tscn")
 	pass # Replace with function body.
 	
 func _input(event):
 	if(event.is_action_pressed("ui_shoot")):
 		player_State.currentHealth = 100
-		get_tree().change_scene_to_file("res://Cenas/test.tscn")
+		get_tree().change_scene_to_file("res://Cenas/level.tscn")
 

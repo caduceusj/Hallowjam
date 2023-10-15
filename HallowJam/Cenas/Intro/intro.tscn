@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7ty1hov1ipnv" path="res://Sprite/Intro/Intro Tileset.png" id="2_bykoj"]
 [ext_resource type="AudioStream" uid="uid://cxufokmmyoceq" path="res://SFX/Intro/Voz.wav" id="3_8biut"]
 [ext_resource type="FontFile" uid="uid://bltj6pj5t6cuh" path="res://Cenas/Fontes/ModernDOS9x16.ttf" id="3_rq3ke"]
-[ext_resource type="AudioStream" uid="uid://c8hwvagalp3ry" path="res://SFX/OST/WitchHunt.mp3" id="5_6tcly"]
+[ext_resource type="AudioStream" uid="uid://cthdcf1deslog" path="res://SFX/OST/The_Old_Witch_Reminiscence.ogg" id="5_plkpr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo11u"]
 atlas = ExtResource("2_bykoj")
@@ -408,5 +408,5 @@ color = Color(0, 0, 0, 0)
 stream = ExtResource("3_8biut")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_6tcly")
+stream = ExtResource("5_plkpr")
 volume_db = -10.0

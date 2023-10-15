@@ -49,7 +49,7 @@ func shoot():
 	get_tree().root.add_child(ball)
 	canShoot = true
 	
-	
+
 
 func _on_bullet_and_area_area_entered(area):
 	if(area.is_in_group("bullet")):

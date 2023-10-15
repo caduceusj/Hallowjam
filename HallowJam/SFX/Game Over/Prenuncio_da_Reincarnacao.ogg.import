@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ioteqcb3cmsw"
+path="res://.godot/imported/Prenuncio_da_Reincarnacao.ogg-cdd7616e7a4a4a3b1d486a745af9eb2c.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/Game Over/Prenuncio_da_Reincarnacao.ogg"
+dest_files=["res://.godot/imported/Prenuncio_da_Reincarnacao.ogg-cdd7616e7a4a4a3b1d486a745af9eb2c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed = 400  # Ajuste para corresponder ao seu jogo
+@export var speed = 200  # Ajuste para corresponder ao seu jogo
 var direction = Vector2(-1, 0)  # Ajuste para a direção que você deseja
 
 @export var damage = 25

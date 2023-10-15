@@ -16,6 +16,7 @@ var directionBullet = Vector2(1,0)
 @onready var web = preload("res://Cenas/Bullets/web.tscn")
 @onready var axe = preload("res://Cenas/Bullets/axe.tscn")
 
+
 var fireOn = false
 var inMeleeArea = false
 var coolDown = 2.0
@@ -93,6 +94,8 @@ func fire():
 		canFire = true
 	
 func skillShot():
+		$AudioStreamPlayer.stream = load("res://SFX/Character/axe_throw.ogg")
+		$AudioStreamPlayer.play(0.0)
 		var axeShot = axe.instantiate()
 		axeShot.global_position = bullet_point.global_position
 		axeShot.direction = directionBullet
@@ -150,7 +153,7 @@ func _input(event):
 		#fireFlip
 		$Fire.position = Vector2(-36,-4)
 		$Fire.flip_h = true
-	if(event.is_action_pressed("ui_change_skill")):
+	if(event.is_action_pressed("ui_change_skill") and player_State.hasSkill):
 		var aux = player_State.currentItems.find(player_State.currentSkill)
 		if(aux + 1 >= player_State.currentItems.size()):
 			aux = 0

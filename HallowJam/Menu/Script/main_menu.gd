@@ -42,6 +42,8 @@ func setCurrentSelection(currentSelection) :
 
 func handleSelection(currentSelection) :
 	if(currentSelection == 0) :
+		$AnimationPlayer.play("musicFadeOut")
+		await($AnimationPlayer.animation_finished)
 		var maxHealth = 100
 		get_tree().change_scene_to_file(startScene)			
 	elif(currentSelection == 2) :

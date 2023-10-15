@@ -1,7 +1,7 @@
 extends MarginContainer
 
 const menuScene = "res://Menu/Cenas/main_menu.tscn"
-const startScene = "res://Cenas/test.tscn"
+const startScene = "res://Cenas/level.tscn"
 
 @onready var player_State = get_node("/root/PlayerState")
 @onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Label
@@ -27,6 +27,7 @@ func handleSelection(currentSelection) :
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer.play(0.0)
 	setCurrentSelection(0)
 
 

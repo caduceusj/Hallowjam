@@ -7,8 +7,10 @@ var minHealth = 0
 
 var currentHealth = 100
 
-var currentItems = ["Hammer"]
+var currentItems = []
 
-var currentSkill = "Hammer"
+var currentSkill = "Axe"
 
 var checkpoint = 0
+
+var hasSkill = false
