@@ -1,7 +1,11 @@
+CollisionShape2D
+Area2D
+StaticBody2D
+ColorRect
+Node2D
 Panel
 TextureRect
 Sprite2D
-ColorRect
 CanvasLayer
 AudioStreamPlayer
 AnimatedSprite2D

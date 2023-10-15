@@ -17,6 +17,11 @@ func _process(delta):
 	if(currentOldValue != State.currentHealth):
 		$TextureProgressBar.value = lerp(currentOldValue, State.currentHealth, 0.5)
 		currentOldValue = State.currentHealth
+	if(State.currentItems.size() == 0):
+		$TextureRect/Sprite2D.hide()
+	else:
+		$TextureRect/Sprite2D.show()
+
 	if(State.currentSkill == "Axe"):
 		$TextureRect/Sprite2D.frame = 0
 	elif(State.currentSkill == "Flame"):
@@ -25,5 +30,5 @@ func _process(delta):
 		$TextureRect/Sprite2D.frame = 2
 	elif(State.currentSkill == "Web"):
 		$TextureRect/Sprite2D.frame = 3
-		
+	
 	

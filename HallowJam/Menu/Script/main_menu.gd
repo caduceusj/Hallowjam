@@ -42,6 +42,7 @@ func setCurrentSelection(currentSelection) :
 
 func handleSelection(currentSelection) :
 	if(currentSelection == 0) :
+		var maxHealth = 100
 		get_tree().change_scene_to_file(startScene)			
 	elif(currentSelection == 2) :
 		get_tree().quit()

@@ -16,6 +16,7 @@ var directionBullet = Vector2(1,0)
 @onready var web = preload("res://Cenas/Bullets/web.tscn")
 @onready var axe = preload("res://Cenas/Bullets/axe.tscn")
 
+var fireOn = false
 var inMeleeArea = false
 var coolDown = 2.0
 var bullet_point : Node2D
@@ -88,7 +89,7 @@ func fire():
 		bulletShoot.global_position = bullet_point.global_position
 		bulletShoot.direction = directionBullet
 		get_tree().root.add_child(bulletShoot)
-		await(get_tree().create_timer(bulletShoot.coolDown).timeout)
+		await(get_tree().create_timer(0.5).timeout)
 		canFire = true
 	
 func skillShot():
@@ -124,11 +125,11 @@ func flamethrower():
 	$AudioStreamPlayer.stream = load("res://SFX/Weapons/HallowJam23_-_Track_02_Flamethrower.wav")
 	$AudioStreamPlayer.play(0.0)
 	$Fire.play("default")
-	$Fire/Area2D2.monitorable = true
+	fireOn = true
 	$Fire.visible = true
 	await($AudioStreamPlayer.finished)
 	#await(get_tree().create_timer(2.0).timeout)
-	$Fire/Area2D2.monitorable = false
+	fireOn = false
 	$Fire.visible = false
 
 

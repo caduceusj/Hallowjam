@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bte83fj65jvig"]
+[gd_scene load_steps=12 format=3 uid="uid://bte83fj65jvig"]
 
 [ext_resource type="Script" path="res://Scripts/level1.gd" id="1_bui3x"]
 [ext_resource type="PackedScene" uid="uid://dpk2epek71usb" path="res://Cenas/cameraLimiter.tscn" id="2_iglrm"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bkvuor1qxglqe" path="res://Cenas/UI.tscn" id="5_kydml"]
 [ext_resource type="PackedScene" uid="uid://cjjh6r2kqes1u" path="res://Cenas/Items/collectablePrefab.tscn" id="6_hhdj5"]
 [ext_resource type="PackedScene" uid="uid://dtbcw8g40h38x" path="res://Cenas/Enemy/enemyTurret.tscn" id="7_44lux"]
+[ext_resource type="PackedScene" uid="uid://dk4ecyp4i8rdx" path="res://Cenas/check_point_scene.tscn" id="9_gf1ws"]
+[ext_resource type="PackedScene" uid="uid://ctdytf63gsd8h" path="res://Cenas/parede.tscn" id="10_ren4q"]
+[ext_resource type="PackedScene" uid="uid://cgvs5uaowgbb0" path="res://Cenas/Ursula/Ursula.tscn" id="11_f5nwf"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("1_bui3x")
@@ -47,8 +50,28 @@ position = Vector2(441, 683)
 [node name="Collectable" parent="." instance=ExtResource("6_hhdj5")]
 position = Vector2(670, 672)
 
+[node name="Collectable2" parent="." instance=ExtResource("6_hhdj5")]
+position = Vector2(704, 672)
+item = "Flame"
+
 [node name="Enemy2" parent="." instance=ExtResource("5_hmqh2")]
 position = Vector2(575, 683)
 
 [node name="Enemy3" parent="." instance=ExtResource("7_44lux")]
 position = Vector2(393, 685)
+
+[node name="CheckPoints" type="Node2D" parent="."]
+
+[node name="CheckPoint" parent="CheckPoints" instance=ExtResource("9_gf1ws")]
+position = Vector2(1164, 656)
+checkpoint = 1
+
+[node name="Parede" parent="." instance=ExtResource("10_ren4q")]
+position = Vector2(797, 682)
+
+[node name="Parede2" parent="." instance=ExtResource("10_ren4q")]
+position = Vector2(797, 650)
+
+[node name="Ursula" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_f5nwf")]
+position = Vector2(1046, 667)
+player = NodePath(".")

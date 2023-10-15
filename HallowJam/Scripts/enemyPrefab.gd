@@ -74,8 +74,9 @@ func _on_bullet_and_area_area_entered(area):
 			queue_free()
 
 	elif(area.is_in_group("Fire")):
-		onFire = true
-		$AnimationPlayer.play("Damaged")
+		if((area.get_parent()).get_parent().fireOn == true):
+			onFire = true
+			$AnimationPlayer.play("Damaged")
 	elif(area.is_in_group("Hammer")):
 		health = health - 75
 		$AnimationPlayer.play("Damaged")

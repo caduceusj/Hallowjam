@@ -1,8 +1,9 @@
 extends MarginContainer
 
 const menuScene = "res://Menu/Cenas/main_menu.tscn"
-const startScene = "res://Cenas/Intro/intro.tscn"
+const startScene = "res://Cenas/test.tscn"
 
+@onready var player_State = get_node("/root/PlayerState")
 @onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Label
 @onready var selectorTwo = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Label
 
@@ -19,6 +20,7 @@ func setCurrentSelection(currentSelection) :
 
 func handleSelection(currentSelection) :
 	if(currentSelection == 0) :
+		player_State.currentHealth = 100
 		get_tree().change_scene_to_file(startScene)			
 	else :
 		get_tree().change_scene_to_file(menuScene)			

@@ -280,6 +280,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_q4wtd"]
+resource_name = "Damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ipbw0"]
 resource_name = "HammerStrike"
 length = 1.5
@@ -726,22 +742,6 @@ tracks/4/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_q4wtd"]
-resource_name = "Damaged"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_npeuk"]
 _data = {
 "Damaged": SubResource("Animation_q4wtd"),
@@ -785,7 +785,6 @@ frame_progress = 0.927139
 
 [node name="Area2D2" type="Area2D" parent="Fire" groups=["Fire"]]
 position = Vector2(-32, 5.33333)
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fire/Area2D2"]
 position = Vector2(26, -5.33333)
