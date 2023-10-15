@@ -75,3 +75,6 @@ position = Vector2(797, 650)
 [node name="Ursula" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_f5nwf")]
 position = Vector2(1046, 667)
 player = NodePath(".")
+
+[node name="Node2D2" parent="." instance=ExtResource("11_f5nwf")]
+position = Vector2(204, 667)
